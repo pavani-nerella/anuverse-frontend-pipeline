@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnuVerse Technologies | Next-Gen Digital Growth Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyberCyan: '#00F2FE',
+                        neonPurple: '#9D4EDD',
+                        deepVoid: '#070A13',
+                        cardDark: '#111625',
+                        starlight: '#E2E8F0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .glass-panel {
+            background: rgba(17, 22, 37, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .accordion-content.open { max-height: 200px; }
+    </style>
+</head>
+<body class="bg-deepVoid text-starlight font-sans antialiased selection:bg-cyberCyan selection:text-deepVoid">
+
+    <header class="fixed top-0 left-0 w-full z-50 bg-deepVoid/80 backdrop-blur-md border-b border-white/5 shadow-2xl">
+        <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-black tracking-tight flex items-center gap-2 cursor-pointer" onclick="switchTab('home')">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyberCyan to-neonPurple flex items-center justify-center text-xs text-deepVoid font-black">AV</div>
+                Anu<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-neonPurple">Verse</span>
+            </div>
+            <ul class="hidden md:flex items-center space-x-8 text-sm font-semibold text-gray-400">
+                <li><button onclick="switchTab('home')" class="hover:text-cyberCyan transition">Home Dashboard</button></li>
+                <li><button onclick="switchTab('services')" class="hover:text-cyberCyan transition">Our Systems</button></li>
+                <li><button onclick="navigateToAnchor('home', '#roi-calc')" class="hover:text-cyberCyan transition">ROI Engine</button></li>
+                <li><button onclick="navigateToAnchor('home', '#pricing')" class="hover:text-cyberCyan transition">Investment</button></li>
+                <li><button onclick="switchTab('contact')" class="hover:text-cyberCyan transition">Contact Matrix</button></li>
+            </ul>
+            <div>
+                <button onclick="navigateToAnchor('contact', '#audit-form-section')" class="px-5 py-2.5 text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-cyberCyan to-neonPurple text-deepVoid rounded-xl shadow-[0_0_20px_rgba(0,242,254,0.3)] hover:scale-105 transition duration-300">
+                    Execute Free Audit
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div id="home-tab" class="tab-content active pt-20">
+        <section class="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <span class="text-xs font-bold text-cyberCyan bg-cyberCyan/10 border border-cyberCyan/20 px-4 py-1.5 rounded-full inline-flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-cyberCyan animate-ping"></span> Enterprise Growth Protocol Active · 2026
+                </span>
+                <h1 class="text-5xl md:text-6xl font-black tracking-tight leading-tight">
+                    Engineered to <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-neonPurple">Scale Intelligent Digital Infrastructure</span>
+                </h1>
+                <p class="text-gray-400 text-lg max-w-xl">
+                    We deploy robust, data-driven AI systems and custom architectures designed to capture, nurture, and automate customer pipelines into compounding revenue engines.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <button onclick="navigateToAnchor('contact', '#audit-form-section')" class="px-7 py-4 bg-gradient-to-r from-cyberCyan to-neonPurple text-deepVoid font-black rounded-xl shadow-lg hover:opacity-90 transition">Get Free Audit &rarr;</button>
+                    <button onclick="switchTab('services')" class="px-7 py-4 border border-white/10 bg-cardDark text-starlight font-bold rounded-xl hover:bg-slate-800 transition">Explore Ecosystem</button>
+                </div>
+                <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/5">
+                    <div><h4 class="text-3xl font-black text-white">300%</h4><p class="text-xs text-gray-500">Average Lead Acceleration</p></div>
+                    <div><h4 class="text-3xl font-black text-white">48 Hours</h4><p class="text-xs text-gray-500">Infrastructure Setup</p></div>
+                    <div><h4 class="text-3xl font-black text-white">Zero</h4><p class="text-xs text-gray-500">Vendor Overhead</p></div>
+                </div>
+            </div>
+            
+            <div class="glass-panel p-8 rounded-3xl border border-white/10 relative shadow-2xl">
+                <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
+                    <div class="flex space-x-1.5"><span class="w-3 h-3 rounded-full bg-red-500"></span><span class="w-3 h-3 rounded-full bg-yellow-500"></span><span class="w-3 h-3 rounded-full bg-green-500"></span></div>
+                    <span class="text-[10px] font-mono text-cyberCyan uppercase tracking-widest">anuverse_core_node.sh</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="p-4 bg-white/[0.02] rounded-xl border border-white/5 flex items-center justify-between">
+                        <div><p class="text-[10px] uppercase font-mono text-gray-500">System Integration</p><h5 class="text-sm font-bold">Active Funnel Automation</h5></div>
+                        <span class="px-2.5 py-1 bg-green-500/10 text-green-400 rounded-md text-xs font-bold font-mono">100% Secure</span>
+                    </div>
+                    <div class="p-4 bg-white/[0.02] rounded-xl border border-white/5">
+                        <p class="text-[10px] uppercase font-mono text-gray-500 mb-2">Omni-Channel Lead Velocity</p>
+                        <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden"><div class="bg-gradient-to-r from-cyberCyan to-neonPurple h-full w-[84%]"></div></div>
+                    </div>
+                </div>
+                <div class="absolute -bottom-4 -right-4 bg-cardDark border border-white/10 p-4 rounded-2xl shadow-2xl">
+                    <p class="text-xs text-gray-400 font-medium">Global Businesses Transformed</p>
+                    <p class="text-2xl font-black text-cyberCyan">50+ Scale Projects</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="roi-calc" class="py-20 px-6 max-w-5xl mx-auto border-t border-white/5">
+            <div class="glass-panel p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 text-7xl font-black text-white/[0.01] pointer-events-none font-mono">CALC</div>
+                <div class="mb-8">
+                    <span class="text-xs font-mono font-bold text-neonPurple uppercase">Interactive Value Calculator</span>
+                    <h3 class="text-2xl md:text-3xl font-black text-white mt-1">Estimate Your Growth Multiplier</h3>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between font-mono text-xs text-gray-400 mb-2">
+                            <span>Current Monthly Marketing Spend:</span>
+                            <span class="text-cyberCyan font-bold" id="spend-label">₹50,000</span>
+                        </div>
+                        <input type="range" min="10000" max="500000" step="5000" value="50000" id="roi-range" class="w-full accent-cyberCyan bg-white/10 rounded-lg h-2 cursor-pointer">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/5">
+                        <div class="p-4 bg-deepVoid rounded-xl border border-white/5">
+                            <p class="text-[10px] uppercase font-mono text-gray-500">Estimated Saved Leaks / Month</p>
+                            <p class="text-xl font-black text-emerald-400" id="saved-leaks">₹15,000</p>
+                        </div>
+                        <div class="p-4 bg-deepVoid rounded-xl border border-white/5">
+                            <p class="text-[10px] uppercase font-mono text-gray-500">Potential Revenue Increase</p>
+                            <p class="text-xl font-black text-cyberCyan" id="revenue-growth">₹1,50,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-cardDark/50 border-t border-b border-white/5 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="max-w-2xl mb-16">
+                    <span class="text-xs font-bold tracking-widest uppercase text-neonPurple">The Leak Diagnostic</span>
+                    <h2 class="text-4xl font-black mt-2 text-white">Silent infrastructure leaks cost you <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-purple-400">30–50% of your performance</span></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-8 bg-cardDark border border-white/5 rounded-2xl hover:border-cyberCyan/20 transition">
+                        <div class="text-2xl mb-4 text-cyberCyan"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <h3 class="text-xl font-bold mb-2 text-white">No Conversion Blueprint</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Traffic hits your landing frameworks, encounters static layouts with zero behavior tracking, and leaves immediately.</p>
+                        <p class="text-cyberCyan text-xs font-mono mt-4">&rarr; High-Intent Pipeline Dropoffs</p>
+                    </div>
+                    <div class="p-8 bg-cardDark border border-white/5 rounded-2xl hover:border-cyberCyan/20 transition">
+                        <div class="text-2xl mb-4 text-neonPurple"><i class="fa-solid fa-server"></i></div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Fragmented Data Islands</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Without an active integrated CRM architecture, high-value conversion logs disintegrate before sync routines execute.</p>
+                        <p class="text-cyberCyan text-xs font-mono mt-4">&rarr; Revenue Drifted Off-Table</p>
+                    </div>
+                    <div class="p-8 bg-cardDark border border-white/5 rounded-2xl hover:border-cyberCyan/20 transition">
+                        <div class="text-2xl mb-4 text-amber-500"><i class="fa-solid fa-hourglass-end"></i></div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Latency-Heavy Responses</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Manual tracking operators yield multi-hour operational delays. Warm inbound logs drift directly to agile competitors.</p>
+                        <p class="text-cyberCyan text-xs font-mono mt-4">&rarr; System Outpaced by Fast Nodes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 px-6 max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs font-mono text-cyberCyan uppercase">Validation Matrix</span>
+                <h3 class="text-2xl font-black text-white">Trusted by Scaled Founders</h3>
+            </div>
+            <div class="bg-cardDark p-8 rounded-2xl border border-white/5 relative min-h-[160px] flex items-center">
+                <div class="absolute -top-3 left-6 bg-gradient-to-r from-cyberCyan to-neonPurple text-deepVoid font-black text-[9px] px-2.5 py-0.5 rounded-full uppercase">Verified Record</div>
+                <div id="testimonial-box" class="w-full space-y-2 transition duration-300">
+                    <p class="text-sm italic text-gray-300">"The custom CRM automation and conversational tech stack deployed by AnuVerse scaled our B2B lead cycles by a massive 2.5x within the first 30 days."</p>
+                    <p class="text-xs font-bold text-cyberCyan">— Enterprise Ops Director, FinTech Global</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="services-tab" class="tab-content pt-20">
+        <section class="py-20 bg-gradient-to-b from-cardDark/40 to-deepVoid border-b border-white/5 px-6">
+            <div class="max-w-7xl mx-auto text-center space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-cyberCyan bg-cyberCyan/10 px-4 py-1 rounded-full">Systems Matrix</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white">Growth Platforms Engineered to Perform</h2>
+                <p class="text-gray-400 text-base max-w-2xl mx-auto">Full-stack software deployment, high-converting frameworks, and artificial intelligence unified into single operations engines.</p>
+            </div>
+        </section>
+
+        <section class="py-20 px-6 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-cardDark p-8 rounded-2xl border border-white/5 hover:border-cyberCyan/30 transition shadow-xl">
+                    <div class="text-2xl mb-4 text-cyberCyan"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Web & Application Development</h3>
+                    <ul class="text-xs text-gray-400 space-y-2.5 mb-6">
+                        <li><i class="fa-solid fa-square-poll-vertical text-cyberCyan mr-2"></i>Corporate web systems architectures</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-cyberCyan mr-2"></i>Tailor-made cloud digital applications</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-cyberCyan mr-2"></i>Behavioral UI/UX funnel flow models</li>
+                    </ul>
+                    <button onclick="openModal('Web & App System')" class="text-xs font-bold text-neonPurple hover:underline text-left">Initialize Architecture &rarr;</button>
+                </div>
+
+                <div class="bg-cardDark p-8 rounded-2xl border border-white/5 hover:border-cyberCyan/30 transition shadow-xl">
+                    <div class="text-2xl mb-4 text-neonPurple"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">SaaS & Custom Software Solutions</h3>
+                    <ul class="text-xs text-gray-400 space-y-2.5 mb-6">
+                        <li><i class="fa-solid fa-square-poll-vertical text-neonPurple mr-2"></i>Multi-tenant scalable SaaS node structures</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-neonPurple mr-2"></i>Robust enterprise backend logic design</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-neonPurple mr-2"></i>Custom API framework endpoints integration</li>
+                    </ul>
+                    <button onclick="openModal('SaaS Cloud Solutions')" class="text-xs font-bold text-neonPurple hover:underline text-left">Initialize Architecture &rarr;</button>
+                </div>
+
+                <div class="bg-gradient-to-b from-cardDark to-deepVoid p-8 rounded-2xl border-2 border-cyberCyan shadow-2xl relative">
+                    <span class="absolute -top-3 right-4 bg-gradient-to-r from-cyberCyan to-neonPurple text-deepVoid text-[9px] uppercase tracking-wider font-black px-3 py-1 rounded-full shadow-lg">Optimized Node</span>
+                    <div class="text-2xl mb-4 text-cyberCyan"><i class="fa-solid fa-arrows-spin"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">CRM & Business System Automation</h3>
+                    <ul class="text-xs text-gray-400 space-y-2.5 mb-6">
+                        <li><i class="fa-solid fa-square-poll-vertical text-cyberCyan mr-2"></i>Lead lifecycle automation engineering</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-cyberCyan mr-2"></i>Custom operational sync configurations</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-cyberCyan mr-2"></i>Real-time analytical performance dashboards</li>
+                    </ul>
+                    <button onclick="openModal('CRM Automation Setup')" class="text-xs font-bold text-cyberCyan hover:underline text-left">Initialize Architecture &rarr;</button>
+                </div>
+
+                <div class="bg-cardDark p-8 rounded-2xl border border-white/5 hover:border-cyberCyan/30 transition shadow-xl">
+                    <div class="text-2xl mb-4 text-emerald-400"><i class="fa-solid fa-robot"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">AI & Conversational Engineering</h3>
+                    <ul class="text-xs text-gray-400 space-y-2.5 mb-6">
+                        <li><i class="fa-solid fa-square-poll-vertical text-emerald-400 mr-2"></i>Autonomous custom conversational agents</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-emerald-400 mr-2"></i>Natural language business knowledge bases</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-emerald-400 mr-2"></i>24/7 client qualifying logic pathways</li>
+                    </ul>
+                    <button onclick="openModal('AI Bot Integration')" class="text-xs font-bold text-neonPurple hover:underline text-left">Initialize Architecture &rarr;</button>
+                </div>
+
+                <div class="bg-cardDark p-8 rounded-2xl border border-white/5 hover:border-cyberCyan/30 transition shadow-xl">
+                    <div class="text-2xl mb-4 text-purple-400"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Workflow & WhatsApp API Routines</h3>
+                    <ul class="text-xs text-gray-400 space-y-2.5 mb-6">
+                        <li><i class="fa-solid fa-square-poll-vertical text-purple-400 mr-2"></i>Official Cloud WhatsApp flow routing</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-purple-400 mr-2"></i>Event-triggered notification loops</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-purple-400 mr-2"></i>Transactional pipeline notifications</li>
+                    </ul>
+                    <button onclick="openModal('WhatsApp Flow Routing')" class="text-xs font-bold text-neonPurple hover:underline text-left">Initialize Architecture &rarr;</button>
+                </div>
+
+                <div class="bg-cardDark p-8 rounded-2xl border border-white/5 hover:border-cyberCyan/30 transition shadow-xl">
+                    <div class="text-2xl mb-4 text-amber-400"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">High-Intent SEO & Performance Engines</h3>
+                    <ul class="text-xs text-gray-400 space-y-2.5 mb-6">
+                        <li><i class="fa-solid fa-square-poll-vertical text-amber-400 mr-2"></i>Semantic structured core content silos</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-amber-400 mr-2"></i>Conversion-optimized ad configuration</li>
+                        <li><i class="fa-solid fa-square-poll-vertical text-amber-400 mr-2"></i>Advanced attribution reporting data</li>
+                    </ul>
+                    <button onclick="openModal('SEO Performance Marketing')" class="text-xs font-bold text-neonPurple hover:underline text-left">Initialize Architecture &rarr;</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="pricing-fallback-container">
+        <section id="pricing" class="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+            <div class="text-center max-w-xl mx-auto mb-16">
+                <span class="text-xs font-mono font-bold text-cyberCyan uppercase tracking-wider">Allocation Framework</span>
+                <h2 class="text-3xl font-black text-white mt-1">Transparent Scale Infrastructure Pricing</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-cardDark p-6 rounded-2xl border border-white/5 flex flex-col justify-between hover:border-white/10 transition">
+                    <div>
+                        <h4 class="font-bold text-white text-lg">Starter Node</h4>
+                        <p class="text-2xl font-black text-white my-3">₹24,999 <span class="text-xs font-normal text-gray-500">base deployment</span></p>
+                        <ul class="text-xs space-y-3 text-gray-400 border-t border-white/5 pt-4">
+                            <li><i class="fa-solid fa-circle-nodes text-cyberCyan mr-1.5"></i> Custom Business Web Shell</li>
+                            <li><i class="fa-solid fa-circle-nodes text-cyberCyan mr-1.5"></i> Fully Responsive Wireframes</li>
+                            <li><i class="fa-solid fa-circle-nodes text-cyberCyan mr-1.5"></i> Static Lead Capturing Scripts</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Starter Node Setup')" class="w-full mt-6 py-2.5 bg-white text-deepVoid font-black rounded-xl text-xs">Request Pipeline</button>
+                </div>
+                <div class="bg-cardDark p-6 rounded-2xl border-2 border-cyberCyan shadow-2xl flex flex-col justify-between relative">
+                    <span class="absolute -top-3 left-6 bg-gradient-to-r from-cyberCyan to-neonPurple text-deepVoid font-black text-[9px] px-2.5 py-0.5 rounded-full">Accelerated Growth</span>
+                    <div>
+                        <h4 class="font-bold text-white text-lg">Business Engine</h4>
+                        <p class="text-2xl font-black text-white my-3">₹59,999 <span class="text-xs font-normal text-gray-500">base deployment</span></p>
+                        <ul class="text-xs space-y-3 text-gray-400 border-t border-white/5 pt-4">
+                            <li><i class="fa-solid fa-circle-nodes text-cyberCyan mr-1.5"></i> Advanced Behavioral Conversion Web</li>
+                            <li><i class="fa-solid fa-circle-nodes text-cyberCyan mr-1.5"></i> Core CRM Architecture Setup</li>
+                            <li><i class="fa-solid fa-circle-nodes text-cyberCyan mr-1.5"></i> Custom Conversational Lead Assistant</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Business Engine Suite')" class="w-full mt-6 py-2.5 bg-gradient-to-r from-cyberCyan to-neonPurple text-deepVoid font-black rounded-xl text-xs">Request Pipeline</button>
+                </div>
+                <div class="bg-cardDark p-6 rounded-2xl border border-white/5 flex flex-col justify-between hover:border-white/10 transition">
+                    <div>
+                        <h4 class="font-bold text-white text-lg">AI Automation Suite</h4>
+                        <p class="text-2xl font-black text-white my-3">₹99,999 <span class="text-xs font-normal text-gray-500">base deployment</span></p>
+                        <ul class="text-xs space-y-3 text-gray-400 border-t border-white/5 pt-4">
+                            <li><i class="fa-solid fa-circle-nodes text-neonPurple mr-1.5"></i> Cloud WhatsApp Bot Flows</li>
+                            <li><i class="fa-solid fa-circle-nodes text-neonPurple mr-1.5"></i> Multi-Step Deep AI Logic Modules</li>
+                            <li><i class="fa-solid fa-circle-nodes text-neonPurple mr-1.5"></i> Autonomous Script Sync Matrix</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('AI Automation Suite')" class="w-full mt-6 py-2.5 bg-white text-deepVoid font-black rounded-xl text-xs">Request Pipeline</button>
+                </div>
+                <div class="bg-cardDark p-6 rounded-2xl border border-white/5 flex flex-col justify-between hover:border-white/10 transition">
+                    <div>
+                        <h4 class="font-bold text-white text-lg">Enterprise Core</h4>
+                        <p class="text-2xl font-black text-white my-3">Custom <span class="text-xs font-normal text-gray-500">quota matrix</span></p>
+                        <ul class="text-xs space-y-3 text-gray-400 border-t border-white/5 pt-4">
+                            <li><i class="fa-solid fa-circle-nodes text-gray-500 mr-1.5"></i> Scalable Custom SaaS Frameworks</li>
+                            <li><i class="fa-solid fa-circle-nodes text-gray-500 mr-1.5"></i> Dedicated Engineering Division</li>
+                            <li><i class="fa-solid fa-circle-nodes text-gray-500 mr-1.5"></i> Custom Microservices Cluster</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Enterprise Core Project')" class="w-full mt-6 py-2.5 bg-white text-deepVoid font-black rounded-xl text-xs">Request Evaluation</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="contact-tab" class="tab-content pt-20">
+        <section class="py-16 bg-gradient-to-b from-cardDark/40 to-deepVoid px-6 border-b border-white/5">
+            <div class="max-w-4xl mx-auto text-center space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-cyberCyan bg-cyberCyan/10 px-4 py-1 rounded-full">Let's Build Something Great Together</span>
+                <h2 class="text-4xl font-black text-white">Connect with Our Engineers</h2>
+                <p class="text-gray-400 text-sm max-w-xl mx-auto">Tell us about your business. We'll show you exactly where you're losing growth — and how to fix it. First conversation is completely free.</p>
+            </div>
+        </section>
+
+        <section class="py-12 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-cardDark p-6 border border-white/5 rounded-xl flex items-start gap-4">
+                <div class="p-3 rounded-lg bg-cyberCyan/10 text-cyberCyan text-xl"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                    <h5 class="font-bold text-white text-base">Email Us</h5>
+                    <p class="text-xs text-gray-500 mt-1">We reply within 4 hours on business days</p>
+                    <a href="mailto:support@anuversetechnologies.in" class="text-xs font-mono text-cyberCyan block mt-3 hover:underline">support@anuversetechnologies.in &rarr;</a>
+                </div>
+            </div>
+            <div class="bg-cardDark p-6 border border-white/5 rounded-xl flex items-start gap-4">
+                <div class="p-3 rounded-lg bg-neonPurple/10 text-neonPurple text-xl"><i class="fa-solid fa-phone"></i></div>
+                <div>
+                    <h5 class="font-bold text-white text-base">Call Us</h5>
+                    <p class="text-xs text-gray-500 mt-1">Mon–Sat, 9 AM to 7 PM IST</p>
+                    <a href="tel:+919521070563" class="text-xs font-mono text-cyberCyan block mt-3 hover:underline">+91 95210 70563 &rarr;</a>
+                </div>
+            </div>
+            <div class="bg-cardDark p-6 border border-white/5 rounded-xl flex items-start gap-4">
+                <div class="p-3 rounded-lg bg-emerald-500/10 text-emerald-400 text-xl"><i class="fa-brands fa-whatsapp"></i></div>
+                <div>
+                    <h5 class="font-bold text-white text-base">WhatsApp</h5>
+                    <p class="text-xs text-gray-500 mt-1">Fastest way — usually replies in minutes</p>
+                    <a href="https://wa.me/919521070563" target="_blank" class="text-xs font-mono text-emerald-400 block mt-3 hover:underline">Message on WhatsApp &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="audit-form-section" class="py-12 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-2 glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl">
+                <div class="mb-8">
+                    <span class="text-xs font-mono font-bold text-cyberCyan uppercase bg-cyberCyan/10 px-3 py-1 rounded-full">Worth ₹10,000 — Completely Free</span>
+                    <h3 class="text-2xl font-black text-white mt-3">Book your free business audit</h3>
+                    <p class="text-gray-400 text-xs mt-1">Fill in the details below and we'll get back to you within 4 hours with a tailored growth plan.</p>
+                </div>
+                <form id="deepAuditForm" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-2">First Name *</label>
+                            <input type="text" required class="w-full p-3.5 bg-deepVoid border border-white/10 rounded-xl text-white focus:outline-none focus:border-cyberCyan text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-2">Last Name *</label>
+                            <input type="text" required class="w-full p-3.5 bg-deepVoid border border-white/10 rounded-xl text-white focus:outline-none focus:border-cyberCyan text-sm">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-2">Email Address *</label>
+                            <input type="email" required class="w-full p-3.5 bg-deepVoid border border-white/10 rounded-xl text-white focus:outline-none focus:border-cyberCyan text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-2">Phone Number *</label>
+                            <input type="tel" required class="w-full p-3.5 bg-deepVoid border border-white/10 rounded-xl text-white focus:outline-none focus:border-cyberCyan text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-2">Business Name</label>
+                        <input type="text" class="w-full p-3.5 bg-deepVoid border border-white/10 rounded-xl text-white focus:outline-none focus:border-cyberCyan text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-2">Service Interested In *</label>
+                        <select required class="w-full p-3.5 bg-cardDark border border-white/10 rounded-xl text-gray-300 focus:outline-none focus:border-cyberCyan text-sm">
+                            <option value="" disabled selected>Select a service...</option>
+                            <optgroup label="Web & Software Systems">
+                                <option>Business Website Development</option>
+                                <option>E-Commerce Website</option>
+                                <option>Custom Web Application</option>
+                                <option>Landing Page Design</option>
+                                <option>Portfolio Website</option>
+                                <option>Mobile App Development</option>
+                                <option>Custom Software Development</option>
+                            </optgroup>
+                            <optgroup label="AI & Workflow Automation Matrix">
+                                <option>AI Chatbot Integration</option>
+                                <option>WhatsApp Automation</option>
+                                <option>CRM & Workflow Automation</option>
+                                <option>Sales Funnel Automation</option>
+                                <option>AI Business Automation</option>
+                                <option>Lead Management System</option>
+                            </optgroup>
+                            <optgroup label="Growth & Performance Marketing">
+                                <option>SEO Optimization</option>
+                                <option>Google Ads Management</option>
+                                <option>Meta Ads Management</option>
+                                <option>Social Media Marketing</option>
+                                <option>Lead Generation Campaigns</option>
+                                <option>Brand Growth Strategy</option>
+                            </optgroup>
+                            <optgroup label="Creative UI/UX Architecture">
+                                <option>Logo & Brand Identity</option>
+                                <option>UI/UX Design</option>
+                                <option>Social Media Design</option>
+                                <option>Company Profile Design</option>
+                                <option>Pitch Deck / Presentation Design</option>
+                            </optgroup>
+                            <optgroup label="Management Protocols">
+                                <option>CRM System Development</option>
+                                <option>ERP / Management Software</option>
+                                <option>Booking & Appointment System</option>
+                                <option>Inventory Management System</option>
+                                <option>Business Consultation</option>
+                            </optgroup>
+                            <optgroup label="Bundled Ecosystem Packs">
+                                <option>Startup Launch Package</option>
+                                <option>Complete Digital Growth Package</option>
+                                <option>Full Business Automation Package</option>
+                                <option>End-to-End Growth Infrastructure</option>
+                                <option>Not Sure — Need Consultation</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-3">Estimated Budget</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <label class="border border-white/10 bg-deepVoid p-3 rounded-xl flex items-center gap-2 cursor-pointer text-xs font-medium hover:border-cyberCyan transition">
+                                <input type="radio" name="budget" value="Under 25K" class="accent-cyberCyan"> Under ₹25K
+                            </label>
+                            <label class="border border-white/10 bg-deepVoid p-3 rounded-xl flex items-center gap-2 cursor-pointer text-xs font-medium hover:border-cyberCyan transition">
+                                <input type="radio" name="budget" value="25K - 75K" class="accent-cyberCyan"> ₹25K – ₹75K
+                            </label>
+                            <label class="border border-white/10 bg-deepVoid p-3 rounded-xl flex items-center gap-2 cursor-pointer text-xs font-medium hover:border-cyberCyan transition">
+                                <input type="radio" name="budget" value="75K - 2L" class="accent-cyberCyan"> ₹75K – ₹2L
+                            </label>
+                            <label class="border border-white/10 bg-deepVoid p-3 rounded-xl flex items-center gap-2 cursor-pointer text-xs font-medium hover:border-cyberCyan transition">
+                                <input type="radio" name="budget" value="2L - 5L" class="accent-cyberCyan"> ₹2L – ₹5L
+                            </label>
+                            <label class="border border-white/10 bg-deepVoid p-3 rounded-xl flex items-center gap-2 cursor-pointer text-xs font-medium hover:border-cyberCyan transition">
+                                <input type="radio" name="budget" value="5L+" class="accent-cyberCyan"> ₹5L+
+                            </label>
+                            <label class="border border-white/10 bg-deepVoid p-3 rounded-xl flex items-center gap-2 cursor-pointer text-xs font-medium hover:border-cyberCyan transition">
+                                <input type="radio" name="budget" value="Flexible" class="accent-cyberCyan" checked> Flexible
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-2">Tell us about your business & goals *</label>
+                        <textarea required rows="4" class="w-full p-4 bg-deepVoid border border-white/10 rounded-xl text-white focus:outline-none focus:border-cyberCyan text-sm resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-cyberCyan to-neonPurple text-deepVoid font-black rounded-xl uppercase tracking-wider text-xs shadow-xl hover:opacity-95 transition flex items-center justify-center gap-2">
+                        Send Message & Book Free Audit <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <p class="text-[10px] font-mono text-center text-gray-500"><i class="fa-solid fa-shield-halved text-cyberCyan mr-1"></i> Your information is safe. We never share data and respond within 4 hours.</p>
+                </form>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-cardDark border border-white/5 rounded-2xl p-6 space-y-4">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-white border-b border-white/5 pb-2">Operational Node Profile</h4>
+                    <div class="flex gap-3">
+                        <div class="text-cyberCyan text-base mt-0.5"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-300">Headquarters</h5>
+                            <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">Gorakhpur, Uttar Pradesh, India — our base of operations and primary point of contact for engagements.</p>
+                            <a href="https://maps.google.com" target="_blank" class="text-[11px] font-mono text-cyberCyan hover:underline block mt-2">View on Google Maps &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <div class="text-neonPurple text-base mt-0.5"><i class="fa-solid fa-earth-americas"></i></div>
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-300">Service Area</h5>
+                            <p class="text-xs text-gray-500 mt-0.5">Pan-India and international clients across Asia, Middle East, and beyond. Location is never a barrier.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <div class="text-amber-400 text-base mt-0.5"><i class="fa-solid fa-laptop-house"></i></div>
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-300">Remote-First</h5>
+                            <p class="text-xs text-gray-500 mt-0.5">All client work is delivered remotely — meetings via Google Meet, Zoom, or WhatsApp at your convenience.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <div class="text-emerald-400 text-base mt-0.5"><i class="fa-solid fa-stopwatch"></i></div>
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-300">Response Time</h5>
+                            <p class="text-xs text-gray-500 mt-0.5">Within 4 hours on business days. Same day on urgent requests via WhatsApp.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-cardDark border border-white/5 rounded-2xl p-6 space-y-4">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-white border-b border-white/5 pb-2">Contact Registries</h4>
+                    <div>
+                        <span class="text-[10px] font-mono uppercase text-gray-500 block mb-1">Email Addresses</span>
+                        <p class="text-xs text-starlight font-mono">support@anuversetechnologies.in</p>
+                        <p class="text-xs text-starlight font-mono mt-0.5">admin@anuversetechnologies.in</p>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-mono uppercase text-gray-500 block mb-1">Phone Registration</span>
+                        <p class="text-xs text-starlight font-mono">+91 95210 70563 <span class="text-[10px] text-emerald-400 font-sans ml-1">(WhatsApp Active)</span></p>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-mono uppercase text-gray-500 block mb-1">Business Sync Hours</span>
+                        <div class="grid grid-cols-2 text-[11px] text-gray-400 gap-y-1 font-mono pt-1">
+                            <div>Monday – Friday:</div><div class="text-right text-starlight">9 AM – 7 PM IST</div>
+                            <div>Saturday:</div><div class="text-right text-red-400">Closed</div>
+                            <div>Sunday:</div><div class="text-right text-red-400">Closed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-6 max-w-4xl mx-auto border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-xs font-mono text-neonPurple uppercase">Quick Answers</span>
+                <h3 class="text-2xl font-black text-white mt-1">Common questions before you reach out</h3>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-cardDark border border-white/5 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full p-5 text-left text-sm font-bold text-white flex justify-between items-center hover:bg-white/[0.01] transition focus:outline-none">
+                        <span>How quickly will you respond?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="p-5 pt-0 text-xs text-gray-400 leading-relaxed font-normal">We respond within 4 hours on regular operational business days (Monday to Friday, 9 AM – 7 PM IST). Inbound logs dropped via our direct WhatsApp channel are prioritized and normally handled inside minutes.</p>
+                    </div>
+                </div>
+                <div class="bg-cardDark border border-white/5 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full p-5 text-left text-sm font-bold text-white flex justify-between items-center hover:bg-white/[0.01] transition focus:outline-none">
+                        <span>Is the audit really free?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="p-5 pt-0 text-xs text-gray-400 leading-relaxed font-normal">Yes, completely. Our team builds an infrastructure leak brief worth ₹10,000 targeting data losses, static loading friction parameters, and performance gaps without charging anything for the initial deployment pack review.</p>
+                    </div>
+                </div>
+                <div class="bg-cardDark border border-white/5 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full p-5 text-left text-sm font-bold text-white flex justify-between items-center hover:bg-white/[0.01] transition focus:outline-none">
+                        <span>Do you work with businesses outside Gorakhpur?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="p-5 pt-0 text-xs text-gray-400 leading-relaxed font-normal">Absolutely. While our core headquarters node is located within Gorakhpur, Uttar Pradesh, we run a completely remote-first environment serving clients across major tier hubs in India as well as scaling global operations lines internationally.</p>
+                    </div>
+                </div>
+                <div class="bg-cardDark border border-white/5 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full p-5 text-left text-sm font-bold text-white flex justify-between items-center hover:bg-white/[0.01] transition focus:outline-none">
+                        <span>What happens after I submit the form?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="p-5 pt-0 text-xs text-gray-400 leading-relaxed font-normal">Once the payload locks, our engineering desk evaluates your parameters. You will receive an initial message or tailored document via your preferred channel within 4 hours, followed by a coordination schedule link for a Google Meet session.</p>
+                    </div>
+                </div>
+                <div class="bg-cardDark border border-white/5 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full p-5 text-left text-sm font-bold text-white flex justify-between items-center hover:bg-white/[0.01] transition focus:outline-none">
+                        <span>What if I'm not sure which service I need?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="p-5 pt-0 text-xs text-gray-400 leading-relaxed font-normal">Simply toggle the option labeled "Not Sure — Need Consultation" in our intake menu block. Our strategists will break down and layout your system dependencies comprehensively during our first open workshop call.</p>
+                    </div>
+                </div>
+                <div class="bg-cardDark border border-white/5 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full p-5 text-left text-sm font-bold text-white flex justify-between items-center hover:bg-white/[0.01] transition focus:outline-none">
+                        <span>What is the minimum budget to work with AnuVerse?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="p-5 pt-0 text-xs text-gray-400 leading-relaxed font-normal">Our base configuration arrays for a Starter node cycle kick off starting from ₹24,999. However, we have flexible frameworks built out to align setups with matching system criteria parameters depending on organizational scopes.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 p-6 glass-panel rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <div>
+                    <h5 class="text-sm font-bold text-white">Not ready to fill the form?</h5>
+                    <p class="text-xs text-gray-500">Just say hello directly through any channel link</p>
+                </div>
+                <div class="flex gap-3">
+                    <a href="https://wa.me/919521070563" target="_blank" class="px-4 py-2 bg-emerald-500 text-deepVoid font-black text-xs rounded-xl hover:opacity-90 transition"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Us</a>
+                    <a href="mailto:support@anuversetechnologies.in" class="px-4 py-2 bg-white/5 border border-white/10 text-white font-bold text-xs rounded-xl hover:bg-white/10 transition"><i class="fa-solid fa-envelope mr-1"></i> Send Email</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="contact-modal" class="fixed inset-0 bg-deepVoid/90 backdrop-blur-md z-[100] hidden items-center justify-center p-6">
+        <div class="glass-panel w-full max-w-md p-8 rounded-2xl relative border border-white/10">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <h4 class="text-xl font-black text-white mb-2" id="modal-title">Initialize Protocol</h4>
+            <p class="text-xs text-gray-400 mb-6">Our network engineering matrix will build direct system definitions tailored to this project.</p>
+            <form class="space-y-4" onsubmit="event.preventDefault(); closeModal(); alert('Project Node Target Successfully Locked!');">
+                <input type="text" placeholder="Project Name / Org" required class="w-full p-3 bg-deepVoid border border-white/5 rounded-xl text-sm focus:outline-none focus:border-cyberCyan bg-transparent">
+                <input type="tel" placeholder="Contact Comms Channel / Phone" required class="w-full p-3 bg-deepVoid border border-white/5 rounded-xl text-sm focus:outline-none focus:border-cyberCyan bg-transparent">
+                <button type="submit" class="w-full py-3 bg-cyberCyan text-deepVoid font-black rounded-xl text-xs uppercase tracking-wider">Confirm System Initialization</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-deepVoid text-gray-500 py-16 border-t border-white/5 px-6 text-xs">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <h3 class="text-white font-black text-lg">AnuVerse Technologies</h3>
+                <p class="leading-relaxed text-gray-400">AI-powered digital growth systems for businesses that are serious about scaling. Based in Gorakhpur, serving clients across India and globally.</p>
+                <div class="space-y-1 font-mono text-[11px] text-gray-400">
+                    <p><i class="fa-solid fa-phone mr-1 text-cyberCyan"></i> +91 95210 70563</p>
+                    <p><i class="fa-solid fa-envelope mr-1 text-neonPurple"></i> support@anuversetechnologies.in</p>
+                </div>
+                <div class="flex gap-4 text-sm pt-2">
+                    <a href="#" class="hover:text-cyberCyan"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-cyberCyan"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-cyberCyan"><i class="fa-brands fa-threads"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Services Matrix</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><button onclick="switchTab('services')" class="hover:text-cyberCyan transition">Web Development</button></li>
+                    <li><button onclick="switchTab('services')" class="hover:text-cyberCyan transition">App Development</button></li>
+                    <li><button onclick="switchTab('services')" class="hover:text-cyberCyan transition">AI Automation</button></li>
+                    <li><button onclick="switchTab('services')" class="hover:text-cyberCyan transition">Performance Marketing</button></li>
+                    <li><button onclick="switchTab('services')" class="hover:text-cyberCyan transition">CRM Systems</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Company Profile</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><button onclick="switchTab('home')" class="hover:text-cyberCyan transition">Home Node Dashboard</button></li>
+                    <li><button onclick="navigateToAnchor('home', '#roi-calc')" class="hover:text-cyberCyan transition">About & ROI Engine</button></li>
+                    <li><button onclick="navigateToAnchor('home', '#pricing')" class="hover:text-cyberCyan transition">Investment Pricing</button></li>
+                    <li><a href="#" class="hover:text-cyberCyan transition">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Immediate Actions</h4>
+                <ul class="space-y-2 text-cyberCyan font-bold">
+                    <li><button onclick="navigateToAnchor('contact', '#audit-form-section')" class="hover:underline text-left">Free Business Audit</button></li>
+                    <li><button onclick="switchTab('contact')" class="hover:underline text-left">Book a Calibration Call</button></li>
+                    <li><a href="https://wa.me/919521070563" target="_blank" class="hover:underline">WhatsApp Link Interface</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto text-center border-t border-white/5 mt-12 pt-6 text-[10px] tracking-widest text-gray-600 font-mono">
+            &copy; 2026 ANUVERSE TECHNOLOGIES. RUNNING GLOBAL ENTERPRISE NODES. GORAKHPUR, INDIA. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching routing logic with Pricing structural wrapper control
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            const targetedTab = document.getElementById(tabId + '-tab');
+            if(targetedTab) targetedTab.classList.add('active');
+            
+            // Manage where Pricing Section displays structurally based on configuration matrix
+            const pricingBlock = document.getElementById('pricing');
+            if(tabId === 'services') {
+                document.getElementById('services-tab').appendChild(pricingBlock);
+            } else {
+                document.getElementById('pricing-fallback-container').appendChild(pricingBlock);
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Anchor Routing Sync fix between active display grids
+        function navigateToAnchor(tabId, anchorId) {
+            switchTab(tabId);
+            setTimeout(() => {
+                const targetElement = document.querySelector(anchorId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+
+        // Live ROI Engine Logic
+        const roiRange = document.getElementById('roi-range');
+        if(roiRange) {
+            roiRange.addEventListener('input', function() {
+                const val = parseInt(this.value);
+                document.getElementById('spend-label').innerText = '₹' + val.toLocaleString('en-IN');
+                document.getElementById('saved-leaks').innerText = '₹' + Math.floor(val * 0.3).toLocaleString('en-IN');
+                document.getElementById('revenue-growth').innerText = '₹' + Math.floor(val * 3).toLocaleString('en-IN');
+            });
+        }
+
+        // Dynamic Testimonial Matrix Carousel Database
+        const reviews = [
+            { txt: `"The custom CRM automation and conversational tech stack deployed by AnuVerse scaled our B2B lead cycles by a massive 2.5x within the first 30 days."`, author: "— Enterprise Ops Director, FinTech Global" },
+            { txt: `"Transitioning our infrastructure to these high-converting software blueprints decreased our system churn rate down to absolute zero."`, author: "— Tech Founder, SaaS Matrix Engine" }
+        ];
+        let rIdx = 0;
+        setInterval(() => {
+            rIdx = (rIdx + 1) % reviews.length;
+            const tBox = document.getElementById('testimonial-box');
+            if(tBox) {
+                tBox.style.opacity = '0';
+                setTimeout(() => {
+                    tBox.innerHTML = `<p class="text-sm italic text-gray-300">${reviews[rIdx].txt}</p><p class="text-xs font-bold text-cyberCyan">${reviews[rIdx].author}</p>`;
+                    tBox.style.opacity = '1';
+                }, 300);
+            }
+        }, 5000);
+
+        // Accordion Animation Toggle Registry
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            // Toggle Content Display Height Limits
+            content.classList.toggle('open');
+            
+            // Rotate Chevron Element Indicator
+            if (content.classList.contains('open')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Pop-up Modal Controls
+        function openModal(title) {
+            document.getElementById('modal-title').innerText = "Initialize: " + title;
+            const m = document.getElementById('contact-modal');
+            m.classList.remove('hidden');
+            m.classList.add('flex');
+        }
+        function closeModal() {
+            const m = document.getElementById('contact-modal');
+            m.classList.remove('flex');
+            m.classList.add('hidden');
+        }
+
+        // Form Submit Handler Mutations
+        document.getElementById('deepAuditForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.innerHTML = `<div class="text-center py-12 text-cyberCyan font-bold font-mono text-sm tracking-wider"><i class="fa-solid fa-circle-check animate-bounce text-2xl block mb-3"></i> Diagnostics Intake Protocol Successfully Initialized.<br><span class="text-xs text-gray-500 font-sans block mt-1">Our engineering team will compile data packets and sync within 4 hours.</span></div>`;
+        });
+    </script>
+</body>
+</html>
